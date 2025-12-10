@@ -1,0 +1,80 @@
+# OSINT Investigation Framework (OIF) Requirements
+# ================================================
+# 
+# Core dependencies (required for full functionality)
+# ---------------------------------------------------
+
+# HTTP requests and web scraping
+requests>=2.31.0              # HTTP requests for Ollama LLM and web APIs
+beautifulsoup4>=4.12.0        # HTML parsing for web scraping
+
+# PDF Processing
+PyPDF2>=3.0.0                 # PDF text extraction (fallback)
+pdfplumber>=0.10.0            # PDF text extraction (preferred, better tables)
+
+# Excel/Spreadsheet Processing
+openpyxl>=3.1.0               # Excel .xlsx files
+xlrd>=2.0.0                   # Excel .xls files (legacy format)
+
+# Image Processing
+Pillow>=10.0.0                # Image processing and EXIF metadata extraction
+pytesseract>=0.3.10           # OCR text extraction from images (requires Tesseract)
+
+# PDF OCR Support (for scanned PDFs)
+pdf2image>=1.16.0             # Convert PDF pages to images for OCR
+PyMuPDF>=1.23.0               # Alternative PDF to image (faster, no Poppler needed)
+
+# Document Processing
+python-docx>=1.0.0            # Microsoft Word .docx files
+
+# Data Formats
+pyyaml>=6.0                   # YAML configuration and data files
+
+# File System Monitoring
+watchdog>=3.0.0               # Watch directories for new files (auto-analysis)
+
+# LangChain Integration (Enhanced LLM Processing)
+langchain>=0.1.0              # LangChain core framework
+langchain-community>=0.0.10   # Community integrations (Ollama)
+langchain-text-splitters>=0.0.1  # Text chunking with overlap
+
+# Data Analysis (optional but recommended)
+pandas>=2.0.0                 # Advanced data analysis
+networkx>=3.0                 # Graph/network analysis
+
+# Network/OSINT Tools (optional)
+python-whois>=0.8.0           # WHOIS lookups
+dnspython>=2.4.0              # DNS queries
+shodan>=1.30.0                # Shodan API integration
+ipwhois>=1.2.0                # IP WHOIS lookups
+geoip2>=4.7.0                 # GeoIP lookups
+
+# CLI Enhancement (optional)
+rich>=13.0.0                  # Rich terminal output
+click>=8.1.0                  # Enhanced CLI framework
+
+# ================================================
+# Installation Instructions
+# ================================================
+#
+# Install all dependencies:
+#   pip install -r requirements.txt
+#
+# For OCR support, also install Tesseract:
+#   Windows: Download from https://github.com/UB-Mannheim/tesseract/wiki
+#            Default install path: C:\Program Files\Tesseract-OCR
+#   Linux:   sudo apt-get install tesseract-ocr
+#   macOS:   brew install tesseract
+#
+# For PDF OCR with pdf2image, also install Poppler:
+#   Windows: Download from https://github.com/osber/poppler-windows/releases
+#            Add bin folder to PATH
+#   Linux:   sudo apt-get install poppler-utils
+#   macOS:   brew install poppler
+#
+# Alternative: Use PyMuPDF instead (no Poppler needed):
+#   pip install PyMuPDF
+#
+# Minimal installation (core features only):
+#   pip install requests PyPDF2 openpyxl Pillow python-docx pyyaml
+#
